@@ -11,6 +11,9 @@ const route = useRoute()
 const router = useRouter()
 const uiStore = useUiStore()
 
+// 페이지 가이드
+const { message: guideMessage } = usePageGuide()
+
 // 모드 판별
 const isEditMode = computed(() => route.params.id !== 'new')
 
@@ -132,6 +135,8 @@ onMounted(() => {
     @cancel="handleCancel"
     @delete="handleDelete"
   >
+    <!-- 페이지 가이드 툴팁 -->
+    <UiPageTooltip :message="guideMessage" />
 
     <div v-if="isLoading" class="flex items-center justify-center py-20">
       <UiSpinner size="lg" />

@@ -9,6 +9,9 @@ import { useUiStore } from '~/stores/ui'
 
 const uiStore = useUiStore()
 
+// 페이지 가이드
+const { message: guideMessage } = usePageGuide()
+
 // 혜택 옵션 목록 (실제 기능과 연결될 ID 기반)
 const benefitOptions = [
   { id: 'free_shipping', label: '무료 배송', description: '전 상품 무료 배송' },
@@ -146,6 +149,9 @@ const viewMembers = (gradeName) => {
 
 <template>
   <div>
+    <!-- 페이지 가이드 툴팁 -->
+    <UiPageTooltip :message="guideMessage" />
+
     <!-- Page Header -->
     <div class="mb-6">
       <h1 class="text-2xl font-bold text-neutral-900">회원 등급</h1>

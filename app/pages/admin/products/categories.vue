@@ -13,6 +13,9 @@ import { useUiStore } from '~/stores/ui'
 
 const uiStore = useUiStore()
 
+// 페이지 가이드
+const { message: guideMessage } = usePageGuide()
+
 // 로딩 상태
 const isLoading = ref(true)
 const isSaving = ref(false)
@@ -287,6 +290,9 @@ onMounted(() => {
     @save="saveAllChanges"
     @cancel="cancelChanges"
   >
+    <!-- 페이지 가이드 툴팁 -->
+    <UiPageTooltip :message="guideMessage" />
+
     <!-- 로딩 -->
     <div v-if="isLoading" class="flex items-center justify-center py-20">
       <UiSpinner size="lg" />

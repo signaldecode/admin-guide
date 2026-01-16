@@ -9,6 +9,9 @@
 const router = useRouter()
 const route = useRoute()
 
+// 페이지 가이드
+const { message: guideMessage } = usePageGuide()
+
 // 검색 필터
 const filterStatus = ref('')
 const searchType = ref('orderNo')
@@ -246,6 +249,9 @@ import { useUiStore } from '~/stores/ui'
 
 <template>
   <LayoutListPage title="주문 목록">
+    <!-- 페이지 가이드 툴팁 -->
+    <UiPageTooltip :message="guideMessage" />
+
     <!-- Description -->
     <template #description>
       전체 주문 {{ totalItems.toLocaleString() }}건

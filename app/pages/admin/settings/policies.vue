@@ -11,6 +11,9 @@ import { useUiStore } from '~/stores/ui'
 
 const uiStore = useUiStore()
 
+// 페이지 가이드
+const { message: guideMessage } = usePageGuide()
+
 // 로딩/저장 상태
 const isLoading = ref(true)
 const isSaving = ref(false)
@@ -142,6 +145,9 @@ const handleSave = async () => {
     :is-saving="isSaving"
     @save="handleSave"
   >
+    <!-- 페이지 가이드 툴팁 -->
+    <UiPageTooltip :message="guideMessage" />
+
     <template #header>
       <!-- Tabs -->
       <div class="border-b border-neutral-200 mt-4 -mx-6 px-6">

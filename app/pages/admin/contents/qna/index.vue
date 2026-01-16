@@ -8,6 +8,9 @@ import { useUiStore } from '~/stores/ui'
 const router = useRouter()
 const uiStore = useUiStore()
 
+// 페이지 가이드
+const { message: guideMessage } = usePageGuide()
+
 const categoryOptions = [
   { value: 'product', label: '상품문의' },
   { value: 'delivery', label: '배송문의' },
@@ -91,6 +94,9 @@ const paginatedList = computed(() => {
 
 <template>
   <LayoutListPage title="Q&A 관리">
+    <!-- 페이지 가이드 툴팁 -->
+    <UiPageTooltip :message="guideMessage" />
+
     <template #description>
       고객 문의에 답변합니다.
       <span v-if="pendingCount > 0" class="text-warning-600 font-medium">(답변 대기 {{ pendingCount }}건)</span>

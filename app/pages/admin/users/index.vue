@@ -9,6 +9,9 @@
 const router = useRouter()
 const route = useRoute()
 
+// 페이지 가이드
+const { message: guideMessage } = usePageGuide()
+
 // 검색 필터
 const filterGrade = ref('')
 const searchType = ref('name')
@@ -245,6 +248,9 @@ import { useUiStore } from '~/stores/ui'
 
 <template>
   <LayoutListPage title="회원 목록">
+    <!-- 페이지 가이드 툴팁 -->
+    <UiPageTooltip :message="guideMessage" />
+
     <!-- Description -->
     <template #description>
       전체 회원 {{ totalItems.toLocaleString() }}명

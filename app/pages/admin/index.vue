@@ -9,6 +9,9 @@ import { useTenantStore } from '~/stores/tenant'
 const authStore = useAuthStore()
 const tenantStore = useTenantStore()
 
+// 페이지 가이드
+const { message: guideMessage } = usePageGuide()
+
 // 주문 현황 데이터
 const orderStats = ref([
   {
@@ -163,6 +166,8 @@ const handleOrderSearch = () => {
 
 <template>
   <LayoutDetailPage>
+    <!-- 페이지 가이드 툴팁 -->
+    <UiPageTooltip :message="guideMessage" />
     <!-- Page Header -->
     <div class="mb-6">
       <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">

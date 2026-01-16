@@ -1,5 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  safelist: [
+    'bg-tooltip',
+    'bg-tooltip-hover',
+  ],
   content: [
     './app/components/**/*.{js,vue,ts}',
     './app/layouts/**/*.vue',
@@ -53,6 +57,11 @@ export default {
           500: '#f59e0b',
           600: '#d97706',
           700: '#b45309',
+        },
+        // 툴팁 전용 색상 (병아리 노랑)
+        tooltip: {
+          DEFAULT: '#FFEB80',
+          hover: '#FFE066',
         },
         error: {
           50: '#fef2f2',

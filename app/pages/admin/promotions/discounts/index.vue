@@ -8,6 +8,9 @@ import { useUiStore } from '~/stores/ui'
 const router = useRouter()
 const uiStore = useUiStore()
 
+// 페이지 가이드
+const { message: guideMessage } = usePageGuide()
+
 // 할인 종류 옵션
 const discountTypeOptions = [
   { value: 'percent', label: '%' },
@@ -135,6 +138,9 @@ const paginatedList = computed(() => {
 
 <template>
   <LayoutListPage title="할인 관리" description="카테고리별 또는 전체 할인을 관리합니다.">
+    <!-- 페이지 가이드 툴팁 -->
+    <UiPageTooltip :message="guideMessage" />
+
     <template #actions>
       <UiButton variant="primary" @click="goToCreate">
         <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

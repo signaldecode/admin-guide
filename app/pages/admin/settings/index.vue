@@ -14,6 +14,9 @@ import { useUiStore } from '~/stores/ui'
 
 const uiStore = useUiStore()
 
+// 페이지 가이드
+const { message: guideMessage } = usePageGuide()
+
 // 탭 정의
 const tabs = [
   { id: 'shop', label: '쇼핑몰 정보' },
@@ -264,6 +267,9 @@ const bankOptions = [
     :is-saving="isSaving"
     @save="handleSave"
   >
+    <!-- 페이지 가이드 툴팁 -->
+    <UiPageTooltip :message="guideMessage" />
+
     <!-- Tabs -->
     <template #header>
       <div class="border-b border-neutral-200 mt-4 -mx-6 px-6">

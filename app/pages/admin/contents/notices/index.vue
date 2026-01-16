@@ -8,6 +8,9 @@ import { useUiStore } from '~/stores/ui'
 const router = useRouter()
 const uiStore = useUiStore()
 
+// 페이지 가이드
+const { message: guideMessage } = usePageGuide()
+
 const categoryOptions = [
   { value: 'general', label: '일반' },
   { value: 'event', label: '이벤트' },
@@ -90,6 +93,9 @@ const paginatedNotices = computed(() => {
 
 <template>
   <LayoutListPage title="공지사항 관리" description="공지사항을 관리합니다.">
+    <!-- 페이지 가이드 툴팁 -->
+    <UiPageTooltip :message="guideMessage" />
+
     <template #actions>
       <UiButton variant="primary" @click="goToCreate">
         <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

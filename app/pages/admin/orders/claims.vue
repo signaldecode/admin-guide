@@ -7,6 +7,9 @@
 
 const router = useRouter()
 
+// 페이지 가이드
+const { message: guideMessage } = usePageGuide()
+
 // 검색 필터
 const filterType = ref('')      // 유형 필터 (교환/반품/취소)
 const filterStatus = ref('')    // 상태 필터 (요청/승인/완료 등)
@@ -288,6 +291,9 @@ import { useUiStore } from '~/stores/ui'
 
 <template>
   <LayoutListPage title="교환/반품/취소">
+    <!-- 페이지 가이드 툴팁 -->
+    <UiPageTooltip :message="guideMessage" />
+
     <!-- Description -->
     <template #description>
       전체 {{ totalItems.toLocaleString() }}건

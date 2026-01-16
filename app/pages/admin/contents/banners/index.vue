@@ -8,6 +8,9 @@ import { useUiStore } from '~/stores/ui'
 const router = useRouter()
 const uiStore = useUiStore()
 
+// 페이지 가이드
+const { message: guideMessage } = usePageGuide()
+
 // 배너 위치 옵션
 const positionOptions = [
   { value: 'main_top', label: '메인 상단' },
@@ -181,6 +184,9 @@ const paginatedBanners = computed(() => {
 
 <template>
   <LayoutListPage title="배너 관리" description="사이트 배너를 관리합니다.">
+    <!-- 페이지 가이드 툴팁 -->
+    <UiPageTooltip :message="guideMessage" />
+
     <template #actions>
       <UiButton variant="primary" @click="goToCreate">
         <svg class="w-4 h-4 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

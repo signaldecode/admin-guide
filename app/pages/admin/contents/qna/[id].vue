@@ -9,6 +9,9 @@ const route = useRoute()
 const router = useRouter()
 const uiStore = useUiStore()
 
+// 페이지 가이드
+const { message: guideMessage } = usePageGuide()
+
 const categoryOptions = [
   { value: 'product', label: '상품문의' },
   { value: 'delivery', label: '배송문의' },
@@ -88,6 +91,8 @@ onMounted(() => fetchQna())
 
 <template>
   <LayoutFormPage title="문의 상세" description="고객 문의에 답변합니다." save-text="답변 저장" :is-saving="isSaving" show-cancel show-delete @save="handleSave" @cancel="handleCancel" @delete="handleDelete">
+    <!-- 페이지 가이드 툴팁 -->
+    <UiPageTooltip :message="guideMessage" />
 
     <div v-if="isLoading" class="flex items-center justify-center py-20"><UiSpinner size="lg" /></div>
 

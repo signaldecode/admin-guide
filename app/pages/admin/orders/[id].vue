@@ -15,6 +15,9 @@ const route = useRoute()
 const router = useRouter()
 const uiStore = useUiStore()
 
+// 페이지 가이드
+const { message: guideMessage } = usePageGuide()
+
 const orderId = computed(() => route.params.id)
 
 // 로딩 상태
@@ -363,6 +366,9 @@ const handleStatusChange = async () => {
 
 <template>
   <LayoutDetailPage>
+    <!-- 페이지 가이드 툴팁 -->
+    <UiPageTooltip :message="guideMessage" />
+
     <!-- Page Header -->
     <div class="mb-6">
       <button
