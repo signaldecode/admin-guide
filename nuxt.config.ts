@@ -18,10 +18,22 @@ export default defineNuxtConfig({
       meta: [
         { charset: 'utf-8' },
         { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' },
-        { name: 'description', content: 'Admin Dashboard' },
-        { name: 'theme-color', content: '#1e40af' },
+        { name: 'description', content: '시그널디코드 Admin Sample - 관리자 대시보드 템플릿' },
+        { name: 'theme-color', content: '#3b82f6' },
+        // Open Graph
+        { property: 'og:type', content: 'website' },
+        { property: 'og:title', content: 'Admin Sample' },
+        { property: 'og:description', content: '시그널디코드 Admin Sample - 관리자 대시보드 템플릿' },
+        { property: 'og:image', content: '/admin.png' },
+        { property: 'og:site_name', content: 'SignalDecode Admin' },
+        // Twitter Card
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:title', content: 'Admin Sample' },
+        { name: 'twitter:description', content: '시그널디코드 Admin Sample - 관리자 대시보드 템플릿' },
+        { name: 'twitter:image', content: '/admin.png' },
       ],
       link: [
+        { rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' },
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       ],
     },
@@ -57,7 +69,7 @@ export default defineNuxtConfig({
       name: 'Admin Dashboard',
       short_name: 'Admin',
       description: 'Admin Dashboard PWA',
-      theme_color: '#1e40af',
+      theme_color: '#3b82f6',
       background_color: '#f8fafc',
       display: 'standalone',
       start_url: '/admin/orders',
